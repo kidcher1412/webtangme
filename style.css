@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+    background-color: #477879;
+}
+.box{
+    position: absolute;
+    top:80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100px;
+}
+.box::before{
+    position: absolute;
+    background-color: #e69c9f;
+    width: 100px;
+    height: 100px;
+    content: '';
+    bottom: 0;
+    left: 0;
+    clip-path: polygon(0 40%,50% 0, 100% 40%, 100% 100% , 0 100%);
+}
+.box::after{
+    position: absolute;
+    width: 100px;
+    background-color: black;
+    border-radius: 30px;
+    content: '';
+    height: 10px;
+    bottom: -30px;
+    opacity: .4;
+    filter: blur(10px);
+}
+.content{
+    position: absolute;
+    transition: .7s ease-in-out;
+    background-color: aliceblue;
+    width: 80%;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%,-10px);
+    height: 80px;
+}
+.designbox{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    height: 60px;
+    background-color: #d26f72;
+    display: block;
+    clip-path: polygon(0 0,50% 35%, 100% 0, 100% 100% , 0 100%);
+}
+.designbox::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65%;
+    background-color: #bd5559;
+    content: '';
+    clip-path: polygon(0 100%,50% 0,100% 100%);
+}
+.box:hover .content{
+    transform: translate(-50%,-30%);
+}
+input{
+    position: absolute;
+    left: -10px;
+}
+input:checked ~ .content{
+    bottom: 50px;
+    width:250px;
+    height: 310px;
+    margin: 0;
+    left: 50%;
+    transform: translate(-50%,-30%);
+}
+img{
+    position: absolute;
+    transform: translate(35%,-90px);
+    width: 120px;
+    object-fit: cover;
+    display: none;
+}
+.title{
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: x-large;
+    font-family: 'Fuzzy Bubbles', cursive;
+    display: none;
+}
+.des{
+    padding-left: 10px;
+    display: none;
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+.title{
+    padding-top:120px;
+}
+.content label{
+    width: 100%;
+    text-align: center;
+    display: block;
+    display: none;
+}
+.content .case{
+    padding-left: 150px;
+    display: none;
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+.content .incase{
+    padding-left: 160px;
+    display: none;
+    font-family: 'Pacifico', cursive;
+    transform: translate(0,-10px);
+
+}
+input:checked ~ .content img,
+input:checked ~ .content .title,
+input:checked ~ .content .des,
+input:checked ~ .content .case,
+input:checked ~ .content .incase,
+input:checked ~ .content label{
+    display: block;
+    opacity: 0;
+    animation: dishide 1s ease-in-out 0.3s 1 forwards;
+}
+@keyframes dishide {
+    from{
+        opacity: 0;
+    }
+    to{        opacity: 1;}
+}

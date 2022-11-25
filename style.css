@@ -72,10 +72,11 @@ input{
     position: absolute;
     left: -10px;
 }
-input:checked ~ .content{
+input:checked ~ .content {
     bottom: 50px;
-    width:250px;
-    height: 310px;
+    width: 250px;
+    height: max-content;
+    max-height: 360px;
     margin: 0;
     left: 50%;
     transform: translate(-50%,-30%);
@@ -135,5 +136,7 @@ input:checked ~ .content label{
     from{
         opacity: 0;
     }
-    to{        opacity: 1;}
+    to{
+        opacity: 1;
+    }
 }
